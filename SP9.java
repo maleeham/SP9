@@ -6,7 +6,7 @@ public class SP9 {
     public static Random random = new Random();
     public static int numTrials = 100;
     public static void main(String[] args) {
-	int n = 10;  int choice = 1 + random.nextInt(4);
+	int n = 10000;  int choice = 1 + random.nextInt(2);
 	if(args.length > 0) { n = Integer.parseInt(args[0]); }
 	if(args.length > 1) { choice = Integer.parseInt(args[1]); }
         int[] arr = new int[n];
@@ -32,7 +32,7 @@ public class SP9 {
 
 	System.out.println("Choice: " + choice + "\n" + timer);
 	//test
-	int[] a = {1, 6, 2, 101, 9, 5, 45, 21, 23, 101, 24, 45, 32,1000001};
+	/**int[] a = {1, 6, 2, 101, 9, 5, 45, 21, 23, 101, 24, 45, 32,1000001};
 	SP9.insertionSort(a);
 	for(int i = 0; i < a.length; i++){
 		System.out.print(a[i] + "\t");
@@ -40,7 +40,7 @@ public class SP9 {
 	SP9.mergeSort1(a);
 	for(int i = 0; i < a.length; i++){
 		System.out.print(a[i] + "\t");
-	} 
+	} */
 	//test 
     }
 
