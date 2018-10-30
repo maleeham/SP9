@@ -31,6 +31,17 @@ public class SP9 {
 	timer.scale(numTrials);
 
 	System.out.println("Choice: " + choice + "\n" + timer);
+	//test
+	int[] a = {1, 6, 2, 101, 9, 5, 45, 21, 23, 101, 24, 45, 32,1000001};
+	SP9.insertionSort(a);
+	for(int i = 0; i < a.length; i++){
+		System.out.print(a[i] + "\t");
+	}
+	SP9.mergeSort1(a);
+	for(int i = 0; i < a.length; i++){
+		System.out.print(a[i] + "\t");
+	} 
+	//test 
     }
 
     public static void insertionSort(int[] arr) {
@@ -50,6 +61,38 @@ public class SP9 {
     }
 
     public static void mergeSort1(int[] arr) {
+    	mergeSort1(arr, new int[arr.length],0, arr.length-1);
+    }
+    public static void mergeSort1(int[] arr, int[] temp, int leftStart, int rightEnd){
+    	if(leftStart >= rightEnd){
+    		return;
+    	}
+    	int middle = (leftStart + rightEnd) / 2;
+    	mergeSort1(arr, temp, leftStart, middle);
+    	mergeSort1(arr, temp, middle+1, rightEnd);
+    	merge(arr, temp, leftStart, rightEnd);
+    }
+    public static void merge(int[] arr, int[] temp, int leftStart, int rightEnd){
+    	int leftEnd = (rightEnd + leftStart)/2;
+    	int rightStart = leftEnd + 1;
+    	int size = rightEnd - leftStart + 1;
+    	int left = leftStart;
+    	int right = rightStart;
+    	int index = leftStart;
+    	
+    	while(left <= leftEnd && right <= rightEnd ){
+    		if(arr[left] <= arr[right]){
+    			temp[index]= arr[left];
+    			left++;
+    		}else {
+    			temp[index] = arr[right];
+    			right++;
+    		}
+    		index++;
+    	}
+    	System.arraycopy(arr, left, temp, index, leftEnd-left+1);
+    	System.arraycopy(arr, right, temp, index, rightEnd - right +1);
+    	System.arraycopy(temp, leftStart, arr, leftStart, size);
     }
 
 
